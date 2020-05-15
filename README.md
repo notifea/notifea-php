@@ -100,7 +100,6 @@ $result = $emailService->deleteEmail('8fc2c850-81c0-4424-823a-aa4727441864');
 `$result` will be an either `true` on successful deletion or `NotifeaException` will be 
 triggered on any failure (such as email not fount)
 
-eqwewqeqwewqeqwewqe qweqwe wqe
 ### Usage - sms
 
 To interact with sms endpoints use `SmsService`. First start by instantiating.
