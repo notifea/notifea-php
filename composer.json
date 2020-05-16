@@ -2,7 +2,7 @@
   "name": "notifea/notifea-php",
   "type": "library",
   "homepage": "https://notifea.com",
-  "description": "Pure PHP repository for using Notifea services.",
+  "description": "Pure PHP repository for Notifea services.",
   "keywords": [
     "emails",
     "email-sending",
