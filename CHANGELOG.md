@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 1.0.2
+
+- Fix removed composer.lock
+
 ## 1.0.1
 
 - Added CHANGELOG.md
