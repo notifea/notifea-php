@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 1.1.0
+
+- Added support for guzzle 7
+
 ## 1.0.2
 
 - Fix removed composer.lock
