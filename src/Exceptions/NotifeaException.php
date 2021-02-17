@@ -15,4 +15,9 @@ class NotifeaException extends \Exception implements \Throwable
         $this->notifeaCode = $notifeaCode;
         parent::__construct($message, $code, $previous);
     }
+
+    public function getNotifeaCode()
+    {
+        return $this->notifeaCode;
+    }
 }

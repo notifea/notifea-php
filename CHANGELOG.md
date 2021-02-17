@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 1.1.1
+
+- Added return type for notifeaCode in NotifeaException
+
 ## 1.1.0
 
 - Added support for guzzle 7
