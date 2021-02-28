@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 1.1.2
+
+- Added v1 prefix to all notifea endpoints
+
 ## 1.1.1
 
 - Added return type for notifeaCode in NotifeaException

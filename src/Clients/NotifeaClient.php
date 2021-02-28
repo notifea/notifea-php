@@ -43,7 +43,7 @@ class NotifeaClient extends Client
      */
     public function getEmails()
     {
-        return $this->get('/emails');
+        return $this->get('/v1/emails');
     }
 
     /**
@@ -53,7 +53,7 @@ class NotifeaClient extends Client
      */
     public function getEmail(string $emailUuid)
     {
-        return $this->get("/emails/$emailUuid");
+        return $this->get("/v1/emails/$emailUuid");
     }
 
     /**
@@ -68,12 +68,12 @@ class NotifeaClient extends Client
 
         // if email has attachments we have to send it as a multipart request option
         if ($email->hasAttachments()) {
-            return $this->request('POST', "/emails$queryParameters", [
+            return $this->request('POST', "/v1/emails$queryParameters", [
                     'multipart' => $email->getAttributesForMultipart(),
                 ])
             ;
         } else {
-            return $this->post("/emails$queryParameters", [
+            return $this->post("/v1/emails$queryParameters", [
                     'json' => $email->getAttributes(),
                 ])
             ;
@@ -87,7 +87,7 @@ class NotifeaClient extends Client
      */
     public function deleteEmail(string $emailUuid)
     {
-        return $this->delete("/emails/$emailUuid");
+        return $this->delete("/v1/emails/$emailUuid");
     }
 
     /**
@@ -97,7 +97,7 @@ class NotifeaClient extends Client
      */
     public function getSmss()
     {
-        return $this->get('/sms');
+        return $this->get('/v1/sms');
     }
 
     /**
@@ -107,7 +107,7 @@ class NotifeaClient extends Client
      */
     public function getSms(string $smsUuid)
     {
-        return $this->get("/sms/$smsUuid");
+        return $this->get("/v1/sms/$smsUuid");
     }
 
     /**
@@ -120,7 +120,7 @@ class NotifeaClient extends Client
             $queryParameters .= '?' . http_build_query($requestOptions->getData());
         }
 
-        return $this->post("/sms$queryParameters", [
+        return $this->post("/v1/sms$queryParameters", [
                 'json' => $sms->getAttributes(),
             ])
         ;
@@ -133,6 +133,6 @@ class NotifeaClient extends Client
      */
     public function deleteSms(string $smsUuid)
     {
-        return $this->delete("/sms/$smsUuid");
+        return $this->delete("/v1/sms/$smsUuid");
     }
 }
