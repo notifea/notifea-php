@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Updated docs - added example to specify a custom name of a sender
+
 ## 1.1.3
 
 - Added possibility to specify a custom name of a sender

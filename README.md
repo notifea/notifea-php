@@ -56,7 +56,7 @@ Sending an email can be as simple as using this few lines of code:
 
 ```php
 $email = new Email();
-$email->setFrom('newadress@notifea.com')
+$email->setFrom('newadress@notifea.com', 'New Address')
     ->setRecipient('customer@business.com')
     ->setReplyTo('reply_to@notifea.com')
     ->setSubject('My first email')
