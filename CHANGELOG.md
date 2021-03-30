@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## 1.1.3
+
+- Added possibility to specify a custom name of a sender
+
 ## 1.1.2
 
 - Added v1 prefix to all notifea endpoints

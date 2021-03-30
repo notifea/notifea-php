@@ -9,6 +9,7 @@ class Email extends Entity
     protected $uuid;
     protected $subject;
     protected $from;
+    protected $from_name;
     protected $recipient;
     protected $cc;
     protected $bcc;
@@ -33,14 +34,25 @@ class Email extends Entity
     }
 
     /**
-     * @param mixed $from
-     *
-     * @return Email
+     * @param $from
+     * @param null $fromName
+     * @return $this
      */
-    public function setFrom($from)
+    public function setFrom($from, $fromName = null)
     {
         $this->from = $from;
+        $this->from_name = $fromName;
 
+        return $this;
+    }
+
+    /**
+     * @param mixed $fromName
+     * @return Email
+     */
+    public function setFromName($fromName)
+    {
+        $this->from_name = $fromName;
         return $this;
     }
 
@@ -156,6 +168,14 @@ class Email extends Entity
     public function getFrom()
     {
         return $this->from;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFromName()
+    {
+        return $this->from_name;
     }
 
     /**
