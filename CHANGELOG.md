@@ -2,7 +2,11 @@
 
 ## Unreleased
 
+- 1.1.4
+
 - Updated docs - added example to specify a custom name of a sender
+- updated composer contact email
+- updated readme
 
 ## 1.1.3
 
