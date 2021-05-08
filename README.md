@@ -4,8 +4,6 @@ Pure PHP repository for using Notifea services.
 [Notifea](https://notifea.com) provides clients very user-friendly way of sending transactional emails
 and sms to their users.
 
-**Please note that our services are in alpha phase and are not yet available to public.** 
-
 ## Install
 
 To install the SDK you need to be using [Composer]([https://getcomposer.org/)
@@ -30,7 +28,7 @@ configuring this client.
 
 ```php
 $client = new NotifeaClient(
-    'https://api.notifea.com',
+    'https://api.notifea.com/v1',
     'Bearer {authorization}'
 );
 ```
@@ -43,7 +41,7 @@ To interact with email endpoints use `EmailService`. First start by instantiatin
 
 ```php
 $client = new NotifeaClient(
-    'https://api.notifea.com',
+    'https://api.notifea.com/v1',
     'Bearer {authorization}'
 );
 
@@ -91,14 +89,14 @@ $email = $emailService->getEmail('8fc2c850-81c0-4424-823a-aa4727441864');
 
 #### Delete email
 
-To delete a single email entity from notifea database, this function is sufficient
+To delete a single email entity from notifea database, usage of this function is sufficient
 
 ```php
 $result = $emailService->deleteEmail('8fc2c850-81c0-4424-823a-aa4727441864');
 ```
 
 `$result` will be an either `true` on successful deletion or `NotifeaException` will be 
-triggered on any failure (such as email not fount)
+triggered on any failure (such as email not found)
 
 ### Usage - sms
 
@@ -106,7 +104,7 @@ To interact with sms endpoints use `SmsService`. First start by instantiating.
 
 ```php
 $client = new NotifeaClient(
-    'https://api.notifea.com',
+    'https://api.notifea.com/v1',
     'Bearer {authorization}'
 );
 
@@ -125,22 +123,22 @@ $sms
     ->setContent('My awesome SMS message.')
 ;
 
-$smsService->sendSms($sms);
+$sentSms = $smsService->sendSms($sms);
 ```
 
-`$sentEmail` will contain updated `Sms` object with all interesting information.
+`$sentSms` will contain updated `Sms` object with all interesting information.
 
 To find out what is your `sms_sender_id` go into your Management section of your sms senders.
 
 #### Get sms
 
-To get sms, use this piece of code:
+To get all sms, use this piece of code:
 
 ```php
-$emails = $smsService->getSmss();
+$smss = $smsService->getSmss();
 ```
 
-`$emails` will be a new `Collection` containing all returned `Sms` objects
+`$smss` will be a new `Collection` containing all returned `Sms` objects
 
 #### Get single sms
 
@@ -161,7 +159,7 @@ $result = $smsService->deleteSms('8fc2c850-81c0-4424-823a-aa4727441864');
 ```
 
 `$result` will be an either `true` on successful deletion or `NotifeaException` will be 
-triggered on any failure (such as email not fount)
+triggered on any failure (such as sms not found)
 
 ## Community
 
