@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- 1.2.0
+
+- Added support to get, create, modify and delete sms senders
+
 - 1.1.4
 
 - Updated docs - added example to specify a custom name of a sender

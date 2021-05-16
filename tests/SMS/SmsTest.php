@@ -17,7 +17,7 @@ class SmsTest extends TestCase
     /**
      * @test
      */
-    public function if_get_smss_work()
+    public function if_get_smss_works()
     {
         $notifeaClient = \Mockery::mock(NotifeaClient::class);
         $notifeaClient
@@ -79,7 +79,7 @@ class SmsTest extends TestCase
     /**
      * @test
      */
-    public function if_get_sms_work()
+    public function if_get_sms_works()
     {
         $notifeaClient = \Mockery::mock(NotifeaClient::class);
         $notifeaClient
@@ -124,7 +124,7 @@ class SmsTest extends TestCase
     /**
      * @test
      */
-    public function if_send_sms_work()
+    public function if_send_sms_works()
     {
         $notifeaClient = \Mockery::mock(NotifeaClient::class);
         $notifeaClient
@@ -177,7 +177,7 @@ class SmsTest extends TestCase
     /**
      * @test
      */
-    public function if_delete_sms_work()
+    public function if_delete_sms_works()
     {
         $notifeaClient = \Mockery::mock(NotifeaClient::class);
         $notifeaClient

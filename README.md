@@ -20,6 +20,7 @@ composer require notifea/notifea-php
 This package will require you to use:
 - PHP 7.0 or higher
 - [guzzlehttp/guzzle](https://github.com/guzzle/guzzle) 6.0 or higher 
+- ext-json
 
 ## Usage
 
@@ -160,6 +161,83 @@ $result = $smsService->deleteSms('8fc2c850-81c0-4424-823a-aa4727441864');
 
 `$result` will be an either `true` on successful deletion or `NotifeaException` will be 
 triggered on any failure (such as sms not found)
+
+### Usage - sms senders
+
+Since May our customers may interact with sms senders by using `SmsSenderService`. This is especially handy if you need to have 
+different Sender Names shown in your SMS
+
+First start by instantiating.
+
+```php
+$client = new NotifeaClient(
+    'https://api.notifea.com/v1',
+    'Bearer {authorization}'
+);
+
+$smsSenderService = new SmsSenderService($client);
+```
+
+#### Create sms sender
+
+Creating an sms sender can be as simple as using this few lines of code:
+
+```php
+$smsSender = new SmsSender();
+$smsSender
+    ->setSenderName('My Sender')
+;
+
+$createdSmsSender = $smsSenderService->createSmsSender($smsSender);
+```
+
+`$createdSmsSender` will contain updated `SmsSender` object with all interesting information such as your sms_sender_id that you need for sending SMS.
+
+#### Get sms senders
+
+To get all sms senders, use this piece of code:
+
+```php
+$smsSenders = $smsSenderService->getSmsSenders();
+```
+
+`$smsSenders` will be a new `Collection` containing all returned `SmsSender` objects
+
+#### Get single sms sender
+
+To get a single sms sender entity, only sms sender uuid is needed:
+
+```php
+$smsSender = $smsSenderService->getSmsSender('8fc2c850-81c0-4424-823a-aa4727441864');
+```
+
+`$smsSender` will be an `SmsSender` object
+
+#### Update sms sender
+
+To update a single sms sender entity, you may use **updateSmsSender()** method and pass in an SmsSender object with the updated data
+
+```php
+$smsSender = new SmsSender();
+$smsSender
+    ->setUuid('8fc2c850-81c0-4424-823a-aa4727441864') // required in order to know which sms sender do you wish to update
+    ->setSenderName('My New Name')
+    ->setLiveTime(25)
+;
+
+$result = $smsSenderService->updateSmsSender($smsSender);
+```
+
+#### Delete sms sender
+
+To delete a single sms sender entity from notifea database, this function is sufficient
+
+```php
+$result = $smsSenderService->deleteSmsSender('8fc2c850-81c0-4424-823a-aa4727441864');
+```
+
+`$result` will be an either `true` on successful deletion or `NotifeaException` will be
+triggered on any failure (such as sms sender not found)
 
 ## Community
 

@@ -3,3 +3,5 @@
 vendor
 .idea
 .gitignore
+deploy.sh
+composer.lock

@@ -6,6 +6,7 @@ namespace Notifea\Collections;
 
 use Notifea\Entities\Email;
 use Notifea\Entities\Sms;
+use Notifea\Entities\SmsSender;
 
 class Collection
 {
@@ -16,7 +17,7 @@ class Collection
     /**
      * Add a new entry into collection.
      *
-     * @param Email|Sms $entry
+     * @param Email|Sms|SmsSender $entry
      *
      * @return $this
      */

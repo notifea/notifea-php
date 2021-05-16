@@ -135,4 +135,71 @@ class NotifeaClient extends Client
     {
         return $this->delete("/v1/sms/$smsUuid");
     }
+
+    /**
+     * GET paginated sms senders
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function getSmsSenders() {
+        return $this->get('/v1/user-sms-senders');
+    }
+
+    /**
+     * GET single sms sender by given uuid
+     *
+     * @param string $smsSenderUuid
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function getSmsSender(string $smsSenderUuid)
+    {
+        return $this->get("/v1/user-sms-senders/$smsSenderUuid");
+    }
+
+    /**
+     * CREATE new sms sender
+     *
+     * @param string $senderName
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function createSmsSender(string $senderName)
+    {
+        return $this->post("/v1/user-sms-senders", [
+                'json' => [
+                    'sender_name' => $senderName,
+                ]
+            ])
+        ;
+    }
+
+    /**
+     * UPDATE existing sms sender
+     *
+     * @param string $smsSenderUuid
+     * @param string $senderName
+     * @param int $smsLiveTime
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function updateSmsSender(string $smsSenderUuid, string $senderName, int $smsLiveTime)
+    {
+        return $this->put("/v1/user-sms-senders/$smsSenderUuid", [
+                'json' => [
+                    'sender_name' => $senderName,
+                    'sms_live_time' => $smsLiveTime
+                ]
+            ])
+        ;
+    }
+
+    /**
+     * DELETE sms sender by given uuid
+     *
+     * @param string $smsSenderUuid
+     * @return \Psr\Http\Message\ResponseInterface
+     */
+    public function deleteSmsSender(string $smsSenderUuid)
+    {
+        return $this->delete("/v1/user-sms-senders/$smsSenderUuid");
+    }
+
 }
